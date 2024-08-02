@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Visual Survey</title>
+</head>
+<body>
+    <script type="module">
+        import { showPage, chooseOption, handleLogin } from './script.js';
+        window.showPage = showPage;
+        window.chooseOption = chooseOption;
+        window.handleLogin = handleLogin;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage(1); // Ensure this is called after the DOM is fully loaded
+            document.querySelector('form').addEventListener('submit', handleLogin);
+        });
+    </script>
+
+<!--    <img src="https://raw.githubusercontent.com/aymuos15/Portfolio/main/network.jpeg" alt="Logo" class="logo"> // If a logo is required on the top left, e.g. NHS/Kings-->
+<!-- https://cai4cai.ml/media/kcllogo.svg // Kings Logo --> 
+
+    <div class="container">
+        <div id="error-container" class="hidden">
+            <p id="error-message"></p>
+            <button onclick="showPage(1)">Try Again</button>
+        </div>
+        <div id="login-page" class="">
+            <h2>Sign In</h2>
+            <form id="sign-in-form">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <label>
+                    <input type="checkbox" name="signup" id="signup"> <span>Sign up</span>
+                </label>
+                <button type="submit">Proceed</button>
+            </form>
+        </div>
+
+        <div id="landing-page" class="hidden">
+            <h1>Welcome to our Visual Survey</h1>
+            <p>Click the button below to start the survey.</p>
+            <button onclick="showPage(3)">Start Survey</button>
+        </div>
+
+        <div id="survey-1" class="hidden">
+            <div class="page-indicator">Page 1 of 3</div>
+            <h2>Evaluating Image Styles</h2>
+            <div class="image-container">
+                <div class="image-option">
+                    <img src="https://raw.githubusercontent.com/aymuos15/Portfolio/main/network.jpeg" alt="Original">
+                    <p>Original Style</p>
+                </div>
+                <div class="options-container">
+                    <div class="image-option">
+                        <img src="https://raw.githubusercontent.com/aymuos15/Portfolio/main/network.jpeg" alt="Option 1">
+                        <button onclick="chooseOption(3, 1)">Choose Modern Style</button>
+                    </div>
+                    <div class="image-option">
+                        <img src="https://raw.githubusercontent.com/aymuos15/Portfolio/main/network.jpeg" alt="Option 2">
+                        <button onclick="chooseOption(3, 2)">Choose Vintage Style</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="survey-2" class="hidden">
+            <div class="page-indicator">Page 2 of 3</div>
+            <h2>Comparing Color Schemes</h2>
+            <div class="image-container">
+                <div class="image-option">
+                    <img src="https://raw.githubusercontent.com/aymuos15/Portfolio/main/network.jpeg" alt="Original">
+                    <p>Original Colors</p>
+                </div>
+                <div class="options-container">
+                    <div class="image-option">
+                        <img src="https://raw.githubusercontent.com/aymuos15/Portfolio/main/network.jpeg" alt="Option 1">
+                        <button onclick="chooseOption(4, 1)">Choose Warm Colors</button>
+                    </div>
+                    <div class="image-option">
+                        <img src="https://raw.githubusercontent.com/aymuos15/Portfolio/main/network.jpeg" alt="Option 2">
+                        <button onclick="chooseOption(4, 2)">Choose Cool Colors</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="survey-3" class="hidden">
+            <div class="page-indicator">Page 3 of 3</div>
+            <h2>Assessing Composition</h2>
+            <div class="image-container">
+                <div class="image-option">
+                    <img src="https://raw.githubusercontent.com/aymuos15/Portfolio/main/network.jpeg" alt="Original">
+                    <p>Original Composition</p>
+                </div>
+                <div class="options-container">
+                    <div class="image-option">
+                        <img src="https://raw.githubusercontent.com/aymuos15/Portfolio/main/network.jpeg" alt="Option 1">
+                        <button onclick="chooseOption(5, 1)">Choose Centered</button>
+                    </div>
+                    <div class="image-option">
+                        <img src="https://raw.githubusercontent.com/aymuos15/Portfolio/main/network.jpeg" alt="Option 2">
+                        <button onclick="chooseOption(5, 2)">Choose Rule of Thirds</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ending-page" class="hidden">
+            <h2>Survey Completed</h2>
+            <p>Thank you for participating in our visual survey!</p>
+            <button onclick="showPage(2)">Retake Survey</button>
+            <button onclick="showPage(1)">Sign Out</button>
+            <button onclick="downloadResults()">Download Results</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://cai4cai.ml/" target="_blank">CAI4CAI</a>
+    </div>
+</body>
+</html>

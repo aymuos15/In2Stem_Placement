@@ -1,0 +1,17 @@
+{
+  "name": "in2stem_placement",
+  "version": "1.0.0",
+  "description": "To run this do the following steps:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2"
+  }
+}
